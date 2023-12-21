@@ -18,28 +18,7 @@ namespace {
 
 class gameVisuals{
 public:
-	gameVisuals(){
-		initscr();
-    	cbreak();
-    	noecho();
-    	curs_set(0);
-    	keypad(stdscr, TRUE);
-    	nodelay(stdscr, TRUE);
-		start_color();
-		init_pair(1,COLOR_BLACK,COLOR_YELLOW );
-		init_pair(2,COLOR_BLACK,COLOR_MAGENTA );
-		init_pair(3,COLOR_BLACK,COLOR_RED );
-		init_pair(4,COLOR_BLACK,COLOR_GREEN );
-		init_pair(5,COLOR_BLACK,COLOR_BLUE );
-		init_pair(6,COLOR_BLACK,COLOR_CYAN );
-		init_pair(7,COLOR_BLACK,COLOR_WHITE);
-		//raw();
-		win = newwin( BORD_WIN_HEIGHT,BORD_WIN_LENGHT,0,0);
-
-	}
-
-
-
+	gameVisuals();
 	void startGame();
 	void procesInput();
 	void printBord();
