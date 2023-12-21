@@ -219,13 +219,16 @@ void game::flipBlock(){
 }
 
 bool game::upsideDown(const matrix& temp){
-	/*for(int i = 0; i < temp.size(); ++i){
-		for(int j = 0; j < temp[i].size(); ++j){			
-			if(temp[i][j] == true && bordGame.bord[i][j] == true ){
+	for(int i = 0; i < temp.size(); ++i){
+		for(int j = 0; j < temp[i].size(); ++j){
+			if(x+j>=BORD_LENGHT){
+				return false;
+			}		
+			if(temp[i][j] == true && bordGame.bord[y+i][x+j] == true ){
 				return false;
 			}
 		}
-	}*/
+	}
 	return true;
 }
 
