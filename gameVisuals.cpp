@@ -1,4 +1,5 @@
 #include "gameVisuals.h"
+#include <string>
 
 	//inline const char* GAME_OVER = "GAME OVER"
 
@@ -59,13 +60,11 @@
 	}
 
 	void gameVisuals::printPoint(){
-		std::string point = "POINT: "
-		mvwprintw(win,BORD_HEIGHT , POINT_PRINT_X ,point);
-		mvwaddch(win,BORD_HEIGHT , POINT_PRINT_X + sizeof(point), Game.getPoint());
-	}0
-
-	void gameVisuals::printPoint(){
-		mvwaddch(win,BORD_WIN_HEIGHT , BORD_LENGHT/2 , Game.getPoint());
+		size_t sizeMesig = 7;
+		std::string pointMesig = "POINT: ";
+		std::string getPoint = std::to_string(Game.getPoint());
+		mvwprintw(win,BORD_HEIGHT , POINT_PRINT_X , "%s",pointMesig.c_str());
+		mvwprintw(win,BORD_HEIGHT ,POINT_PRINT_X + sizeMesig , "%s", getPoint.c_str());
 	}
 
 	
@@ -76,7 +75,7 @@
 			Game.gameDeleteRow();
 			printBord();
 			printBlock();
-			//printPoint();
+			printPoint();
 			procesInput();
 			if(Game.blockMoveDelay()){
 				Game.blockGoDawn();

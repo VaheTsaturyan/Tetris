@@ -8,15 +8,16 @@ const std::chrono::milliseconds moveTime{500};
 TimePoint moveStartTime;
 
 //////////////////////////////////BORD//////////////////////////////////
-void Bord::deleteRow(){
+bool Bord::deleteRow(){
 	int nomberRow = IsFilledLine(); 
 	if(nomberRow == -1){
-		return;
+		return false;
 	}
 	for(int i = nomberRow; i > LAST_ROW_INDEX ; --i ){
 		bord[i] = bord[i-1];
 	}
 	bord[LAST_ROW_INDEX] = std::vector<unit>(BORD_LENGHT,false);
+	return true;
 }
 
 int Bord::IsFilledLine(){
@@ -232,12 +233,14 @@ void game::newFigur(){
 	col = rand()%5+1;
 	addFigur();
 	randFigurs();
-	addPoint();
+	//addPoint();
 	
 }
 
 void game::gameDeleteRow(){
-	bordGame.deleteRow();
+	if(bordGame.deleteRow()){
+		addPoint();
+	}
 }
 
 void game::addFigur(){
@@ -249,7 +252,7 @@ void game::addFigur(){
 			}
 		}
 	}
-	bordGame.deleteRow();
+	//bordGame.deleteRow();
 
 }
 

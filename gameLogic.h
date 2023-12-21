@@ -17,7 +17,7 @@ namespace {
 	using twoDimensionalVector = std::vector<std::vector<unit>>;
 	inline const size BORD_LENGHT = 11; 
 	inline const size BORD_HEIGHT = 20;
-	inline const size ADD_POINT = 2;
+	inline const size ADD_POINT = 100;
 	inline const size START_X = 4;
 	inline const size START_Y = 0;
 	inline const size LAST_ROW_INDEX = 0;
@@ -33,7 +33,7 @@ public:
 
 	int IsFilledLine();
 	bool bordFilles();
-	void deleteRow();
+	bool deleteRow();
 	bool IsTtheLineFull(size rowIndex);
 
 
