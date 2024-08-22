@@ -64,7 +64,7 @@ public:
 	//void ChempsPush();
 	void flipBlock();//
 	bool blockMoveDelay();
-
+	~game();
 private:
 	void addPoint();
 	void addFigur();//

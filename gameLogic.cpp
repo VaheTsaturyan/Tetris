@@ -281,3 +281,9 @@ bool game::blockMoveDelay() {
 	return false;
 }
 
+game::~game(){
+	while(blocks.empty()){
+		delete blocks.back();
+		blocks.pop_back();
+	}
+}
